@@ -10,9 +10,11 @@ using System.Windows.Forms;
 
 namespace ProgrammersDictionary
 {
-    public partial class MainForm : Form
+    public partial class FormWord : Form
     {
-        public MainForm()
+        public string Word => textBoxWord.Text;
+
+        public FormWord()
         {
             InitializeComponent();
         }
