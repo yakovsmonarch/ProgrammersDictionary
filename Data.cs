@@ -38,7 +38,7 @@ namespace ProgrammersDictionary
 
         public void Add(string word, string translation)
         {
-            if (_words.ContainsKey(word) == false)
+            if (_words.ContainsKey(word))
                 return;
             _words.Add(word, translation);
         }

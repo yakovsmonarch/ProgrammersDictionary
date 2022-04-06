@@ -13,6 +13,7 @@ namespace ProgrammersDictionary
     public partial class FormWord : Form
     {
         public string Word => textBoxWord.Text;
+        public string Translation => textBoxTranslation.Text;
 
         public FormWord()
         {
