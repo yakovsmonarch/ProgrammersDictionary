@@ -70,5 +70,39 @@ namespace ProgrammersDictionary
         {
             MessageBox.Show(_messageAbout);
         }
+
+        private void listBoxWords_MouseCaptureChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void listBoxWords_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            string word = listBoxWords.Items[listBoxWords.SelectedIndex].ToString();
+            FormWord formWord = new FormWord(word, _data.GetTranslation(word));
+            if (formWord.ShowDialog() != DialogResult.OK)
+                return;
+            _data.Edit(word, formWord.Translation);
+            listBoxWords.Items.Clear();
+            listBoxWords.Items.AddRange(_data.GetWords().ToArray());
+        }
+
+        private void addWordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddButton_Click(new Object(), e);
+        }
+
+        private void deleteWordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int selectedIndex = listBoxWords.SelectedIndex;
+            if (selectedIndex < 0)
+            {
+                MessageBox.Show("The word from the list is not selected.");
+                return;
+            }
+
+            string word = listBoxWords.Items[selectedIndex].ToString();
+            _data.Delete(word);
+            listBoxWords.Items.RemoveAt(selectedIndex);
+        }
     }
 }

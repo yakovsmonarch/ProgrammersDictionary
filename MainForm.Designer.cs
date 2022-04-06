@@ -29,6 +29,7 @@ namespace ProgrammersDictionary
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.listBoxWords = new System.Windows.Forms.ListBox();
             this.ButtonAdd = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -37,6 +38,8 @@ namespace ProgrammersDictionary
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.referenceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addWordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteWordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,20 +49,21 @@ namespace ProgrammersDictionary
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listBoxWords.FormattingEnabled = true;
-            this.listBoxWords.Location = new System.Drawing.Point(9, 87);
-            this.listBoxWords.Margin = new System.Windows.Forms.Padding(2);
+            this.listBoxWords.ItemHeight = 20;
+            this.listBoxWords.Location = new System.Drawing.Point(14, 134);
             this.listBoxWords.Name = "listBoxWords";
-            this.listBoxWords.Size = new System.Drawing.Size(445, 498);
+            this.listBoxWords.Size = new System.Drawing.Size(413, 404);
             this.listBoxWords.TabIndex = 0;
+            this.listBoxWords.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBoxWords_MouseDoubleClick);
+            this.listBoxWords.MouseCaptureChanged += new System.EventHandler(this.listBoxWords_MouseCaptureChanged);
             // 
             // ButtonAdd
             // 
             this.ButtonAdd.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ButtonAdd.Location = new System.Drawing.Point(9, 47);
-            this.ButtonAdd.Margin = new System.Windows.Forms.Padding(2);
+            this.ButtonAdd.Location = new System.Drawing.Point(14, 72);
             this.ButtonAdd.Name = "ButtonAdd";
-            this.ButtonAdd.Size = new System.Drawing.Size(444, 28);
+            this.ButtonAdd.Size = new System.Drawing.Size(413, 43);
             this.ButtonAdd.TabIndex = 2;
             this.ButtonAdd.Text = "Add word";
             this.ButtonAdd.UseVisualStyleBackColor = true;
@@ -73,29 +77,32 @@ namespace ProgrammersDictionary
             this.referenceToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(459, 24);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(9, 3, 0, 3);
+            this.menuStrip1.Size = new System.Drawing.Size(435, 25);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addWordToolStripMenuItem,
+            this.deleteWordToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 19);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // viewToolStripMenuItem
             // 
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-            this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 19);
             this.viewToolStripMenuItem.Text = "View";
             // 
             // referenceToolStripMenuItem
@@ -103,7 +110,7 @@ namespace ProgrammersDictionary
             this.referenceToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aboutToolStripMenuItem});
             this.referenceToolStripMenuItem.Name = "referenceToolStripMenuItem";
-            this.referenceToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
+            this.referenceToolStripMenuItem.Size = new System.Drawing.Size(71, 19);
             this.referenceToolStripMenuItem.Text = "Reference";
             // 
             // aboutToolStripMenuItem
@@ -113,19 +120,34 @@ namespace ProgrammersDictionary
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
+            // addWordToolStripMenuItem
+            // 
+            this.addWordToolStripMenuItem.Name = "addWordToolStripMenuItem";
+            this.addWordToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
+            this.addWordToolStripMenuItem.Text = "Add word";
+            this.addWordToolStripMenuItem.Click += new System.EventHandler(this.addWordToolStripMenuItem_Click);
+            // 
+            // deleteWordToolStripMenuItem
+            // 
+            this.deleteWordToolStripMenuItem.Name = "deleteWordToolStripMenuItem";
+            this.deleteWordToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
+            this.deleteWordToolStripMenuItem.Text = "Delete the selected word";
+            this.deleteWordToolStripMenuItem.Click += new System.EventHandler(this.deleteWordToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(459, 602);
+            this.ClientSize = new System.Drawing.Size(435, 569);
             this.Controls.Add(this.ButtonAdd);
             this.Controls.Add(this.listBoxWords);
             this.Controls.Add(this.menuStrip1);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Словарь программиста";
+            this.Text = "Dictionary";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.menuStrip1.ResumeLayout(false);
@@ -145,6 +167,8 @@ namespace ProgrammersDictionary
         private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem referenceToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addWordToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteWordToolStripMenuItem;
     }
 }
 
