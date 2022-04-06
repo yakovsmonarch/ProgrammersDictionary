@@ -34,12 +34,13 @@ namespace ProgrammersDictionary
             this.ButtonAdd = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addWordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteWordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.referenceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addWordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteWordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editWordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -87,10 +88,25 @@ namespace ProgrammersDictionary
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addWordToolStripMenuItem,
             this.deleteWordToolStripMenuItem,
+            this.editWordToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 19);
             this.fileToolStripMenuItem.Text = "File";
+            // 
+            // addWordToolStripMenuItem
+            // 
+            this.addWordToolStripMenuItem.Name = "addWordToolStripMenuItem";
+            this.addWordToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
+            this.addWordToolStripMenuItem.Text = "Add word";
+            this.addWordToolStripMenuItem.Click += new System.EventHandler(this.addWordToolStripMenuItem_Click);
+            // 
+            // deleteWordToolStripMenuItem
+            // 
+            this.deleteWordToolStripMenuItem.Name = "deleteWordToolStripMenuItem";
+            this.deleteWordToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
+            this.deleteWordToolStripMenuItem.Text = "Delete the selected word";
+            this.deleteWordToolStripMenuItem.Click += new System.EventHandler(this.deleteWordToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
@@ -120,19 +136,12 @@ namespace ProgrammersDictionary
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
-            // addWordToolStripMenuItem
+            // editWordToolStripMenuItem
             // 
-            this.addWordToolStripMenuItem.Name = "addWordToolStripMenuItem";
-            this.addWordToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
-            this.addWordToolStripMenuItem.Text = "Add word";
-            this.addWordToolStripMenuItem.Click += new System.EventHandler(this.addWordToolStripMenuItem_Click);
-            // 
-            // deleteWordToolStripMenuItem
-            // 
-            this.deleteWordToolStripMenuItem.Name = "deleteWordToolStripMenuItem";
-            this.deleteWordToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
-            this.deleteWordToolStripMenuItem.Text = "Delete the selected word";
-            this.deleteWordToolStripMenuItem.Click += new System.EventHandler(this.deleteWordToolStripMenuItem_Click);
+            this.editWordToolStripMenuItem.Name = "editWordToolStripMenuItem";
+            this.editWordToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
+            this.editWordToolStripMenuItem.Text = "Edit word";
+            this.editWordToolStripMenuItem.Click += new System.EventHandler(this.editWordToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -169,6 +178,7 @@ namespace ProgrammersDictionary
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addWordToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteWordToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editWordToolStripMenuItem;
     }
 }
 

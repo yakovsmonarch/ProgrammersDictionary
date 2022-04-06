@@ -17,6 +17,7 @@ namespace ProgrammersDictionary
         private Data _data;
         private const string _FILENAME = "data.dat";
         private const string _messageAbout = "An application for creating your own dictionary.";
+        private const string _messageErrorSelectListBox = "The word from the list is not selected.";
 
         public MainForm()
         {
@@ -77,13 +78,7 @@ namespace ProgrammersDictionary
 
         private void listBoxWords_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            string word = listBoxWords.Items[listBoxWords.SelectedIndex].ToString();
-            FormWord formWord = new FormWord(word, _data.GetTranslation(word));
-            if (formWord.ShowDialog() != DialogResult.OK)
-                return;
-            _data.Edit(word, formWord.Translation);
-            listBoxWords.Items.Clear();
-            listBoxWords.Items.AddRange(_data.GetWords().ToArray());
+            EditWord();
         }
 
         private void addWordToolStripMenuItem_Click(object sender, EventArgs e)
@@ -96,13 +91,36 @@ namespace ProgrammersDictionary
             int selectedIndex = listBoxWords.SelectedIndex;
             if (selectedIndex < 0)
             {
-                MessageBox.Show("The word from the list is not selected.");
+                MessageBox.Show(_messageErrorSelectListBox);
                 return;
             }
 
             string word = listBoxWords.Items[selectedIndex].ToString();
             _data.Delete(word);
             listBoxWords.Items.RemoveAt(selectedIndex);
+        }
+
+        private void editWordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EditWord();
+        }
+
+        private void EditWord()
+        {
+            if (listBoxWords.SelectedIndex < 0)
+            {
+                MessageBox.Show(_messageErrorSelectListBox);
+                return;
+            }
+
+            string word = listBoxWords.Items[listBoxWords.SelectedIndex].ToString();
+            FormWord formWord = new FormWord(word, _data.GetTranslation(word));
+            if (formWord.ShowDialog() != DialogResult.OK)
+                return;
+
+            _data.Edit(word, formWord.Translation);
+            listBoxWords.Items.Clear();
+            listBoxWords.Items.AddRange(_data.GetWords().ToArray());
         }
     }
 }
