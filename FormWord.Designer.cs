@@ -55,16 +55,15 @@ namespace ProgrammersDictionary
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxTranslation.Location = new System.Drawing.Point(18, 133);
             this.textBoxTranslation.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBoxTranslation.Multiline = true;
             this.textBoxTranslation.Name = "textBoxTranslation";
-            this.textBoxTranslation.Size = new System.Drawing.Size(506, 215);
+            this.textBoxTranslation.Size = new System.Drawing.Size(506, 26);
             this.textBoxTranslation.TabIndex = 1;
             // 
             // buttonOk
             // 
             this.buttonOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonOk.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.buttonOk.Location = new System.Drawing.Point(418, 375);
+            this.buttonOk.Location = new System.Drawing.Point(412, 198);
             this.buttonOk.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonOk.Name = "buttonOk";
             this.buttonOk.Size = new System.Drawing.Size(112, 35);
@@ -76,7 +75,7 @@ namespace ProgrammersDictionary
             // 
             this.buttonCansel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonCansel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCansel.Location = new System.Drawing.Point(256, 375);
+            this.buttonCansel.Location = new System.Drawing.Point(250, 198);
             this.buttonCansel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonCansel.Name = "buttonCansel";
             this.buttonCansel.Size = new System.Drawing.Size(112, 35);
@@ -110,7 +109,7 @@ namespace ProgrammersDictionary
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonCansel;
-            this.ClientSize = new System.Drawing.Size(556, 429);
+            this.ClientSize = new System.Drawing.Size(556, 262);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonCansel);

@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 namespace ProgrammersDictionary
 {
     [Serializable]
-    class Data
+    public class Data
     {
-        private Dictionary<string, string> _words;
+        private readonly Dictionary<string, string> _words;
 
         public Data()
         {

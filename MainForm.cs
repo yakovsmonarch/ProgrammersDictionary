@@ -122,5 +122,13 @@ namespace ProgrammersDictionary
             listBoxWords.Items.Clear();
             listBoxWords.Items.AddRange(_data.GetWords().ToArray());
         }
+
+        private void testingOfLearnedWordsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Visible = false;
+            TrainingForm trainingForm = new TrainingForm(_data);
+            trainingForm.ShowDialog();
+            Visible = true;
+        }
     }
 }

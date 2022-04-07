@@ -36,11 +36,12 @@ namespace ProgrammersDictionary
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addWordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteWordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editWordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.referenceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editWordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.testingOfLearnedWordsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -89,6 +90,7 @@ namespace ProgrammersDictionary
             this.addWordToolStripMenuItem,
             this.deleteWordToolStripMenuItem,
             this.editWordToolStripMenuItem,
+            this.testingOfLearnedWordsToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 19);
@@ -107,6 +109,13 @@ namespace ProgrammersDictionary
             this.deleteWordToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
             this.deleteWordToolStripMenuItem.Text = "Delete the selected word";
             this.deleteWordToolStripMenuItem.Click += new System.EventHandler(this.deleteWordToolStripMenuItem_Click);
+            // 
+            // editWordToolStripMenuItem
+            // 
+            this.editWordToolStripMenuItem.Name = "editWordToolStripMenuItem";
+            this.editWordToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
+            this.editWordToolStripMenuItem.Text = "Edit word";
+            this.editWordToolStripMenuItem.Click += new System.EventHandler(this.editWordToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
@@ -136,12 +145,12 @@ namespace ProgrammersDictionary
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
-            // editWordToolStripMenuItem
+            // testingOfLearnedWordsToolStripMenuItem
             // 
-            this.editWordToolStripMenuItem.Name = "editWordToolStripMenuItem";
-            this.editWordToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
-            this.editWordToolStripMenuItem.Text = "Edit word";
-            this.editWordToolStripMenuItem.Click += new System.EventHandler(this.editWordToolStripMenuItem_Click);
+            this.testingOfLearnedWordsToolStripMenuItem.Name = "testingOfLearnedWordsToolStripMenuItem";
+            this.testingOfLearnedWordsToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
+            this.testingOfLearnedWordsToolStripMenuItem.Text = "Testing of learned words";
+            this.testingOfLearnedWordsToolStripMenuItem.Click += new System.EventHandler(this.testingOfLearnedWordsToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -179,6 +188,7 @@ namespace ProgrammersDictionary
         private System.Windows.Forms.ToolStripMenuItem addWordToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteWordToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editWordToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem testingOfLearnedWordsToolStripMenuItem;
     }
 }
 
