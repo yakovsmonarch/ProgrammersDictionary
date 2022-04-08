@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProgrammersDictionary
@@ -24,10 +17,7 @@ namespace ProgrammersDictionary
             InitializeComponent();
             _data = data;
             _random = new Random();
-        }
 
-        private void TrainingForm_Load(object sender, EventArgs e)
-        {
             labelScore.Text = _score.ToString();
             _words = _data.GetWords().ToArray();
             labelNumberWords.Text = _words.Length.ToString();
@@ -37,22 +27,14 @@ namespace ProgrammersDictionary
 
         private void textBoxAnswer_TextChanged(object sender, EventArgs e)
         {
-            if (labelWord.Text == _data.GetTranslation( textBoxAnswer.Text.Trim()))
+            if ( labelWord.Text == _data.GetTranslation(textBoxAnswer.Text.Trim()) )
             {
                 labelScore.Text = (++_score).ToString();
                 _currentIndex++;
                 if (_currentIndex >= _words.Length)
                 {
-                    if (_score < _words.Length)
-                    {
-                        _currentIndex = 0;
-                        _score = 0;
-                    }
-                    else
-                    {
-                        MessageBox.Show(_messageEndTest);
-                        Close();
-                    }
+                    MessageBox.Show(_messageEndTest);
+                    Close();
                 }
                 else
                 {
@@ -64,16 +46,14 @@ namespace ProgrammersDictionary
 
         private void ShuffleArry(string[] words)
         {
-            int begin = _random.Next(0, words.Length),
-                end = _random.Next(0, words.Length);
             for(int i = 0; i < words.Length; i++)
             {
+                int begin = _random.Next(0, words.Length),
+                end = _random.Next(0, words.Length);
+
                 string temp = words[end];
                 words[end] = words[begin];
                 words[begin] = temp;
-
-                begin = _random.Next(0, words.Length);
-                end = _random.Next(0, words.Length);
             }
         }
 

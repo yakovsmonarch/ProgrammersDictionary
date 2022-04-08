@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace ProgrammersDictionary
 {
@@ -16,35 +8,36 @@ namespace ProgrammersDictionary
         {
             get
             {
-                return textBoxWord.Text;
+                return textBoxWord.Text.Trim();
             }
             private set
             {
-                textBoxWord.Text = value;
+                textBoxWord.Text = value.Trim();
             }
         }
         public string Translation
         {
             get
             {
-                return textBoxTranslation.Text;
+                return textBoxTranslation.Text.Trim();
             }
             private set
             {
-                textBoxTranslation.Text = value;
+                textBoxTranslation.Text = value.Trim();
             }
-        }
-
-        public FormWord(string word, string translation)
-        {
-            InitializeComponent();
-            textBoxWord.Text = word;
-            textBoxTranslation.Text = translation;
         }
 
         public FormWord()
         {
             InitializeComponent();
+        }
+
+        public FormWord(string word, string translation)
+        {
+            InitializeComponent();
+
+            Word = word;
+            Translation = translation;
         }
     }
 }

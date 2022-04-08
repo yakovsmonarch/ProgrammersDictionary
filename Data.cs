@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProgrammersDictionary
 {
@@ -18,12 +16,7 @@ namespace ProgrammersDictionary
 
         public List<string> GetWords()
         {
-            List<string> wordsKey = new List<string>();
-            foreach(string key in _words.Keys)
-            {
-                wordsKey.Add(key);
-            }
-            return wordsKey;
+            return _words.Keys.ToList<string>();
         }
 
         public string GetTranslation(string word)
@@ -38,6 +31,9 @@ namespace ProgrammersDictionary
 
         public void Add(string word, string translation)
         {
+            word = word.Trim();
+            translation = translation.Trim();
+
             if (_words.ContainsKey(word))
                 return;
             _words.Add(word, translation);
@@ -50,11 +46,16 @@ namespace ProgrammersDictionary
             _words.Remove(word);
         }
 
-        public void Edit(string word, string newTranslation)
+        public void Edit(string word, string newWord, string newTranslation)
         {
-            if (_words.ContainsKey(word) == false)
+            if(word == newWord)
+            {
+                _words[word] = newTranslation;
                 return;
-            _words[word] = newTranslation;
+            }
+
+            _words.Remove(word);
+            _words.Add(newWord, newTranslation);
         }
     }
 }

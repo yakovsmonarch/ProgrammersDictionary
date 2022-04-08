@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -15,7 +8,7 @@ namespace ProgrammersDictionary
     public partial class MainForm : Form
     {
         private Data _data;
-        private const string _FILENAME = "data.dat";
+        private const string _fileName = "data.dat";
         private const string _messageAbout = "An application for creating your own dictionary.";
         private const string _messageErrorSelectListBox = "The word from the list is not selected.";
 
@@ -29,7 +22,7 @@ namespace ProgrammersDictionary
             FormWord formWord = new FormWord();
             if (formWord.ShowDialog() != DialogResult.OK) 
                 return;
-            if (formWord.Word.Trim() == string.Empty)
+            if (formWord.Word == string.Empty || formWord.Translation == string.Empty)
                 return;
 
             _data.Add(formWord.Word, formWord.Translation);
@@ -38,14 +31,14 @@ namespace ProgrammersDictionary
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            if (File.Exists(_FILENAME) == false)
+            if (File.Exists(_fileName) == false)
             {
                 _data = new Data();
                 return;
             }
 
             BinaryFormatter binaryFormatter = new BinaryFormatter();
-            using (FileStream fs = new FileStream(_FILENAME, FileMode.OpenOrCreate))
+            using (FileStream fs = new FileStream(_fileName, FileMode.OpenOrCreate))
             {
                 _data = (Data)binaryFormatter.Deserialize(fs);
             }
@@ -56,7 +49,7 @@ namespace ProgrammersDictionary
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             BinaryFormatter binaryFormatter = new BinaryFormatter();
-            using (FileStream fs = new FileStream(_FILENAME, FileMode.OpenOrCreate))
+            using (FileStream fs = new FileStream(_fileName, FileMode.OpenOrCreate))
             {
                 binaryFormatter.Serialize(fs, _data);
             }
@@ -112,15 +105,14 @@ namespace ProgrammersDictionary
                 MessageBox.Show(_messageErrorSelectListBox);
                 return;
             }
-
-            string word = listBoxWords.Items[listBoxWords.SelectedIndex].ToString();
+            int selectedIndex = listBoxWords.SelectedIndex;
+            string word = listBoxWords.Items[selectedIndex].ToString();
             FormWord formWord = new FormWord(word, _data.GetTranslation(word));
             if (formWord.ShowDialog() != DialogResult.OK)
                 return;
 
-            _data.Edit(word, formWord.Translation);
-            listBoxWords.Items.Clear();
-            listBoxWords.Items.AddRange(_data.GetWords().ToArray());
+            _data.Edit(word, formWord.Word, formWord.Translation);
+            listBoxWords.Items[selectedIndex] = formWord.Word;
         }
 
         private void testingOfLearnedWordsToolStripMenuItem_Click(object sender, EventArgs e)
