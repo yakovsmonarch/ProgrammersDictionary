@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Windows.Forms;
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
 
 namespace ProgrammersDictionary
 {
     public partial class MainForm : Form
     {
         private Data _data;
-        private const string _fileName = "data.dat";
         private const string _messageAbout = "An application for creating your own dictionary.";
         private const string _messageErrorSelectListBox = "The word from the list is not selected.";
 
@@ -31,28 +28,13 @@ namespace ProgrammersDictionary
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            if (File.Exists(_fileName) == false)
-            {
-                _data = new Data();
-                return;
-            }
-
-            BinaryFormatter binaryFormatter = new BinaryFormatter();
-            using (FileStream fs = new FileStream(_fileName, FileMode.OpenOrCreate))
-            {
-                _data = (Data)binaryFormatter.Deserialize(fs);
-            }
-
+            _data = new Data();
             listBoxWords.Items.AddRange(_data.GetWords().ToArray());
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            BinaryFormatter binaryFormatter = new BinaryFormatter();
-            using (FileStream fs = new FileStream(_fileName, FileMode.OpenOrCreate))
-            {
-                binaryFormatter.Serialize(fs, _data);
-            }
+            _data.SaveFile();
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
