@@ -11,6 +11,7 @@ namespace ProgrammersDictionary
         private readonly Dictionary<string, string> _words;
         private const string _fileName = "data.dat";
         private WordStorage _wordStorage;
+        private const string _messageException = "The deserialized object has an unsuitable type";
 
         public Data()
         {
@@ -81,7 +82,13 @@ namespace ProgrammersDictionary
             BinaryFormatter binaryFormatter = new BinaryFormatter();
             using (FileStream fs = new FileStream(_fileName, FileMode.OpenOrCreate))
             {
-                _wordStorage = (WordStorage)binaryFormatter.Deserialize(fs);
+                var wordStorage = binaryFormatter.Deserialize(fs);
+                if(wordStorage is WordStorage != true)
+                {
+                    throw new Exception(_messageException);
+                }
+                _wordStorage = (WordStorage)wordStorage;
+                
             }
 
             return _wordStorage.GetDictionary();
