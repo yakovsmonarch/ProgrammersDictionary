@@ -82,12 +82,16 @@ namespace ProgrammersDictionary
             BinaryFormatter binaryFormatter = new BinaryFormatter();
             using (FileStream fs = new FileStream(_fileName, FileMode.OpenOrCreate))
             {
-                var wordStorage = binaryFormatter.Deserialize(fs);
-                if(wordStorage is WordStorage != true)
+                try
                 {
-                    throw new Exception(_messageException);
+                    var wordStorage = binaryFormatter.Deserialize(fs);
+                    _wordStorage = (WordStorage)wordStorage;
                 }
-                _wordStorage = (WordStorage)wordStorage;
+                catch
+                {
+                    _wordStorage = new WordStorage();
+                    return _wordStorage.GetDictionary();
+                }
                 
             }
 
