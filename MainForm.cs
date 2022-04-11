@@ -99,6 +99,9 @@ namespace ProgrammersDictionary
 
         private void testingOfLearnedWordsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (_data.GetWords().Count == 0)
+                return;
+
             Visible = false;
             TrainingForm trainingForm = new TrainingForm(_data);
             trainingForm.ShowDialog();
