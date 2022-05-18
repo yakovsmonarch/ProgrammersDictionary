@@ -9,7 +9,7 @@ namespace ProgrammersDictionary
     [Serializable]
     class WordStorage
     {
-        private Dictionary<string, string> _dictionary { get; set; }
+        private Dictionary<string, string> _dictionary { get; }
 
         public WordStorage()
         {

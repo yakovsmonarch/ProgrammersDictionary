@@ -37,11 +37,11 @@ namespace ProgrammersDictionary
             this.addWordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteWordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editWordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.testingOfLearnedWordsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.referenceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.testingOfLearnedWordsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -117,6 +117,13 @@ namespace ProgrammersDictionary
             this.editWordToolStripMenuItem.Text = "Edit word";
             this.editWordToolStripMenuItem.Click += new System.EventHandler(this.editWordToolStripMenuItem_Click);
             // 
+            // testingOfLearnedWordsToolStripMenuItem
+            // 
+            this.testingOfLearnedWordsToolStripMenuItem.Name = "testingOfLearnedWordsToolStripMenuItem";
+            this.testingOfLearnedWordsToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
+            this.testingOfLearnedWordsToolStripMenuItem.Text = "Testing of learned words";
+            this.testingOfLearnedWordsToolStripMenuItem.Click += new System.EventHandler(this.testingOfLearnedWordsToolStripMenuItem_Click);
+            // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
@@ -145,17 +152,11 @@ namespace ProgrammersDictionary
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
-            // testingOfLearnedWordsToolStripMenuItem
-            // 
-            this.testingOfLearnedWordsToolStripMenuItem.Name = "testingOfLearnedWordsToolStripMenuItem";
-            this.testingOfLearnedWordsToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
-            this.testingOfLearnedWordsToolStripMenuItem.Text = "Testing of learned words";
-            this.testingOfLearnedWordsToolStripMenuItem.Click += new System.EventHandler(this.testingOfLearnedWordsToolStripMenuItem_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(435, 569);
             this.Controls.Add(this.ButtonAdd);
             this.Controls.Add(this.listBoxWords);
