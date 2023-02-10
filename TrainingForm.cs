@@ -27,7 +27,7 @@ namespace ProgrammersDictionary
 
         private void textBoxAnswer_TextChanged(object sender, EventArgs e)
         {
-            if ( labelWord.Text == _data.GetTranslation(textBoxAnswer.Text.Trim()) )
+            if ( labelWord.Text.ToLower() == _data.GetTranslation(textBoxAnswer.Text.Trim().ToLower()) )
             {
                 labelScore.Text = (++_score).ToString();
                 _currentIndex++;
